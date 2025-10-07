@@ -16,7 +16,11 @@ float read_voltage_sensor(int sensor_id) {
     float voltages[5] = {1.8f, 2.0f, 2.5f, 3.0f, 3.3f};  // Valid sensors 0-4
 
     // TODO: Debug this - add bounds check for sensor_id (0-4 valid)
-    return voltages[sensor_id];
+    if (sensor_id >= 0.0f && sensor_id <= 4.0f) {
+        return voltages[sensor_id];
+    }else {
+        return -1.0f;
+    }
 }
 
 #ifndef UNIT_TEST
